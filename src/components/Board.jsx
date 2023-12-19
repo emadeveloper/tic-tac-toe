@@ -44,19 +44,19 @@ const Board = () => {
         <Square
           value={board[3]}
           chooseSquare={() => {
-            chooseSquare(0);
+            chooseSquare(3);
           }}
         />
         <Square
           value={board[4]}
           chooseSquare={() => {
-            chooseSquare(1);
+            chooseSquare(4);
           }}
         />
         <Square
           value={board[5]}
           chooseSquare={() => {
-            chooseSquare(2);
+            chooseSquare(5);
           }}
         />
       </div>
@@ -64,19 +64,19 @@ const Board = () => {
         <Square
           value={board[6]}
           chooseSquare={() => {
-            chooseSquare(0);
+            chooseSquare(6);
           }}
         />
         <Square
           value={board[7]}
           chooseSquare={() => {
-            chooseSquare(1);
+            chooseSquare(7);
           }}
         />
         <Square
           value={board[8]}
           chooseSquare={() => {
-            chooseSquare(2);
+            chooseSquare(8);
           }}
         />
       </div>

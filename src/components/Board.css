@@ -4,7 +4,8 @@
     background-color: aquamarine;
     border: 1px solid black;
     display: flex;
-    flex-wrap: column;
+    flex-direction: column;
+    margin:  10px auto;
 }
 
 .row {
