@@ -9,3 +9,7 @@
     color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.square:active {
+    background-color: #64f4c4;
+}

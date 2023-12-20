@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Board.css";
 import Square from "./Square";
+import { Patterns } from "./Patterns";
 
 const Board = () => {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("X");
+  const [result, setResult] = useState({ winner: "none", state: "none" });
+
+
+  useEffect(() => {
+    checkForWinner();
+    checkIfTie();
+    if (player === "X") {
+      setPlayer("O");
+    } else {
+      setPlayer("X");
+    }
+  }
+    , [board]);
+
 
   const chooseSquare = (square) => {
     setBoard(
@@ -17,6 +32,34 @@ const Board = () => {
     );
     setPlayer(player === "X" ? "O" : "X");
   };
+
+  const checkForWinner = () => {
+    Patterns.forEach((currPattern) => {
+      const firstPlayer = board[currPattern[0]];
+      if (firstPlayer === "") return;
+      let foundWinningPattern = true;
+      currPattern.forEach((idx) => {
+        if (board[idx] !== firstPlayer) {
+          foundWinningPattern = false;
+        }
+      });
+      if (foundWinningPattern) {
+        alert("Player " + firstPlayer + " won!");
+      }
+    });
+  }
+
+  const checkIfTie = () => {
+    let filled = true;
+    board.forEach((square) => {
+      if (square === "") {
+        filled = false;
+      }
+    });
+    if (filled) {
+      alert("Tie Game!");
+    }
+  }
 
   return (
     <div className="board">
